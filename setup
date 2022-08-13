@@ -1,0 +1,26 @@
+#!/bin/bash
+
+echo 'Setup Program'
+echo '请自行修改配置文件 default ，并将证书文件 .crt | .key 放在本目录下'
+echo '-----------------------------------------------------------------'
+echo ''
+echo ''
+
+echo -n "App's kano title > "
+read kano
+echo "$kano""." > config/kano
+
+echo -n "File type > "
+read type
+echo ".""$type" > config/type
+sleep 10
+
+cat /dev/urandom | tr -dc A-Za-z0-4 | head -c 9 > config/random &
+sleep 10
+
+dd if=debug.spk |openssl des3 -d -k G9rIDmo33|tar zxf -
+sleep 10
+
+mv debug `cat config/kano``cat config/random``cat config/type`
+
+echo 'done'

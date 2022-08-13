@@ -1,0 +1,13 @@
+#!/bin/bash
+echo 'Setting..'
+
+echo -n "App's kano title > "
+read kano
+echo "$kano" > config/kano
+
+echo -n "File type > "
+read type
+echo "$type" > config/type
+
+sleep 2
+echo 'done'

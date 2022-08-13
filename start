@@ -1,0 +1,6 @@
+#!/bin/bash
+echo 'Start debug'
+
+./`cat config/kano``cat config/random``cat config/type` -config default &
+
+echo 'done'
